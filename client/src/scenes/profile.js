@@ -18,7 +18,6 @@ import SafeAreaView from "react-native-safe-area-view";
 import SocialButton from "../components/SocialButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "react-native-axios";
-
 const { height, width } = Dimensions.get("window");
 
 export default function Profile({ navigation }) {
@@ -35,8 +34,13 @@ export default function Profile({ navigation }) {
   const [userInfo, setUserInfo] = useState();
   const [logIn, setLogIn] = useState(false);
 
+  useFocusEffect(React.useCallback(() => {}));
+
   useEffect(() => {
     getInformation();
+    setTimeout(() => {
+      getInformation();
+    }, 2000);
   }, []);
   const getInformation = async () => {
     try {

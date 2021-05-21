@@ -36,6 +36,7 @@ const product = ({ navigation }) => {
       .get(`${myConfig}/api/poducts`)
       .then((res) => {
         setData(res.data);
+        console.log("test");
       })
       .catch((err) => {
         console.log(err);
