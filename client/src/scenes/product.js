@@ -11,15 +11,14 @@ import {
   StatusBar,
   Animated,
 } from "react-native";
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import myConfig from "../../configExpo";
 
-import { LinearGradient } from 'expo-linear-gradient';
-
+import { LinearGradient } from "expo-linear-gradient";
 
 import Cart from "./myList";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // import { State } from 'react-native-gesture-handler';
-import myConfig from "../../configExpo";
 
 const product = ({ navigation }) => {
   const SPACING = 20;
@@ -124,28 +123,56 @@ const product = ({ navigation }) => {
                 opacity,
                 transform: [{ scale }],
               }}
-            />
-            <View>
-              <TouchableOpacity onPress={()=> handleClick(item)}>
-              <Text style={{ fontSize: 24, fontWeight: "bold" ,fontFamily:'Lato-BoldItalic'}}>
-                {" "}
-                {item.title}
-                <Text style={{ color: "#1e3799" }}>{item.newprice} DT</Text>
-              </Text>
-              <Text style={{ fontSize: 23 , position:'relative', bottom:-10 , marginLeft:6, fontFamily:'Lato-BoldItalic'}}>{item.type}</Text>
-              <View >
-                <FontAwesome name ='plus-circle' size={30} color='#f7b731' style={{position:'relative', left:150, top:-30}} onPress={()=>handleClick(item)}/>
-              </View>  
-              </TouchableOpacity>
-            </View>
-       
-          </Animated.View>
-        );
-      }}
-    />
- 
-  </LinearGradient>
-
+            >
+              <Image
+                source={{ uri: item.image }}
+                style={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: 70,
+                  marginRight: 20,
+                }}
+              />
+              <View>
+                <TouchableOpacity onPress={() => handleClick(item)}>
+                  <Text
+                    style={{
+                      fontSize: 24,
+                      fontWeight: "bold",
+                      fontFamily: "Lato-BoldItalic",
+                    }}
+                  >
+                    {" "}
+                    {item.title}
+                    <Text style={{ color: "#1e3799" }}>{item.newprice} DT</Text>
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 23,
+                      position: "relative",
+                      bottom: -10,
+                      marginLeft: 6,
+                      fontFamily: "Lato-BoldItalic",
+                    }}
+                  >
+                    {item.type}
+                  </Text>
+                  <View>
+                    <FontAwesome
+                      name="plus-circle"
+                      size={30}
+                      color="#f7b731"
+                      style={{ position: "relative", left: 150, top: -30 }}
+                      onPress={() => handleClick(item)}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </Animated.View>
+          );
+        }}
+      />
+    </LinearGradient>
   );
 };
 

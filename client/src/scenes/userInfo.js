@@ -28,7 +28,7 @@ export default function userInfo({ route, navigation }) {
   const [zipCode, setZipCode] = useState("zip code");
   const [city, setCity] = useState("city");
   const [gender, setGender] = useState("male or female?");
-
+  const id = navigation.state.params.userInfo.id;
   const email = navigation.state.params.userInfo.email;
   setTimeout(() => {
     // firstName
@@ -77,7 +77,6 @@ export default function userInfo({ route, navigation }) {
     const email = emailU;
     axios
       .put(`${myConfig}/api/users/update/${id}`, {
-
         firstName,
         lastName,
         numberPhone,
@@ -129,9 +128,10 @@ export default function userInfo({ route, navigation }) {
           />
           <FormInput
             onChangeText={(numberPhone) => setNumberPhoneU(numberPhone)}
-            placeholderText={phoneNumber? phoneNumber: "put your phone number please "}
+            placeholderText={
+              phoneNumber ? phoneNumber : "pu your phone number please "
+            }
             iconType="phone"
-
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="numeric"
@@ -157,7 +157,6 @@ export default function userInfo({ route, navigation }) {
             onChangeText={(address1) => setAddresse1U(address1)}
             placeholderText={adresse1}
             iconType="flag"
-
             autoCapitalize="none"
             autoCorrect={false}
           />
@@ -166,7 +165,6 @@ export default function userInfo({ route, navigation }) {
             onChangeText={(address2) => setAddresse2U(address2)}
             placeholderText={address2}
             iconType="flag"
-
             autoCapitalize="none"
             autoCorrect={false}
           />
@@ -174,7 +172,6 @@ export default function userInfo({ route, navigation }) {
             onChangeText={(city) => setCityU(city)}
             placeholderText={city}
             iconType="flag"
-
             autoCapitalize="none"
             autoCorrect={false}
           />
@@ -221,4 +218,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#0984e3",
   },
 });
-

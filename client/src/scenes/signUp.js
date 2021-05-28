@@ -35,9 +35,11 @@ const signUp = ({ navigation }) => {
   const ClientIos =
     "213513789380-vq6hj0529hpbte0k5epr1c72gapq4np2.apps.googleusercontent.com";
 
-  const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  const mailformat =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const passformat = /^(?=.*\d)(?=.*[a-z])[a-zA-Z0-9]{8,}$/;
-  const phoneFormat = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  const phoneFormat =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const storeData = async (value) => {
     try {
       const jsonValue = JSON.stringify(value);

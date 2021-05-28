@@ -63,7 +63,10 @@ const signIn = ({ navigation }) => {
 
   const singInx = () => {
     axios
-      .post(`${myConfig}/api/auth/signIn/google`, { email, password })
+      .post("http://192.168.1.15:3333/api/auth/signIn/google", {
+        email,
+        password,
+      })
       .then((res) => {
         console.log("***********************", res.data.user);
 
@@ -169,8 +172,3 @@ const styles = StyleSheet.create({
     fontFamily: "Lato-Regular",
   },
 });
-
-// 213513789380-4g4i28f9lrf6soppvpqrri94tqoc9n8t.apps.googleusercontent.com
-
-// ios
-// 213513789380-vq6hj0529hpbte0k5epr1c72gapq4np2.apps.googleusercontent.com

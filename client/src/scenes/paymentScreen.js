@@ -137,14 +137,13 @@ const paymentScreen = ({ navigation }) => {
         return (
           <View
             style={{
-              flex:1,
+              flex: 1,
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               height: windowHeight,
-             
-              backgroundColor:"#0984e3"
 
+              backgroundColor: "#0984e3",
             }}
           >
             <Text
@@ -167,7 +166,6 @@ const paymentScreen = ({ navigation }) => {
                 accessoryLeft={LoadingIndicator}
               >
                 ...LOADING
-
               </Button>
             ) : (
               <Button
@@ -206,10 +204,8 @@ const styles = StyleSheet.create({
   },
   footer: { flex: 1, backgroundColor: "cyan" },
   load: {
-
     margin: 30,
-    backgroundColor: "#0652DD",
-
+    backgroundColor: "#00b894",
   },
   indicator: {
     justifyContent: "center",

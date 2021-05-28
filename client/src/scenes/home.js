@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "react-native-axios";
 import {
   StyleSheet,
   Text,
@@ -41,9 +40,9 @@ const home = () => {
                 source={require("../../assets/carrefourExpress.png")}
               />
               <Text style={catalogueText.titleExpress}>Carrefour Express</Text>
-              <Text style={catalogueText.descriptionExpress}>
+              {/* <Text style={catalogueText.descriptionExpress}>
                 DU 30/04/2021 AU 16/05/2021
-              </Text>
+              </Text> */}
             </TouchableOpacity>
 
             {/* ******** catalogue carrefour La Marse ******** */}
@@ -60,12 +59,10 @@ const home = () => {
                 style={styles.catalogueImage}
                 source={require("../../assets/carrefourGabes.png")}
               />
-              <Text style={catalogueText.titleLaMarsa}>
-                Carrefour La Marsa & Mall of Sousse
-              </Text>
-              <Text style={catalogueText.descriptionLaMarsa}>
+              <Text style={catalogueText.titleLaMarsa}>Carrefour La Marsa</Text>
+              {/* <Text style={catalogueText.descriptionLaMarsa}>
                 DU 28/04/2021 AU 16/05/2021
-              </Text>
+              </Text> */}
             </TouchableOpacity>
           </View>
           <View style={styles.catalogueContainer}>
@@ -83,9 +80,9 @@ const home = () => {
                 source={require("../../assets/carrefourGabes.png")}
               />
               <Text style={catalogueText.titleGabes}>Carrefour Gabes</Text>
-              <Text style={catalogueText.descriptionGabes}>
+              {/* <Text style={catalogueText.descriptionGabes}>
                 DU 28/04/2021 AU 16/05/2021
-              </Text>
+              </Text> */}
             </TouchableOpacity>
 
             {/* ******** catalogue carrefour Market ******** */}
@@ -102,9 +99,9 @@ const home = () => {
                 source={require("../../assets/carrefourMarket.png")}
               />
               <Text style={catalogueText.titleMarket}>Carrefour Market</Text>
-              <Text style={catalogueText.descriptionMarket}>
+              {/* <Text style={catalogueText.descriptionMarket}>
                 DU 29/04/2021 AU 16/05/2021
-              </Text>
+              </Text> */}
             </TouchableOpacity>
           </View>
         </View>
@@ -226,18 +223,18 @@ const styles = StyleSheet.create({
   },
   catalogueBigContainer: {
     width,
-    height: 770,
+    height: height,
   },
   catalogueContainer: {
     alignSelf: "center",
     flexDirection: "row",
   },
   catalogueImage: {
-    height: 300,
-    width: 200,
+    height: height / 2.42,
+    width: 180,
     marginTop: 20,
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 5,
+    marginRight: 5,
     marginBottom: 10,
   },
 });

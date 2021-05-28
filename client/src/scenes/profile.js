@@ -18,6 +18,7 @@ import SafeAreaView from "react-native-safe-area-view";
 import SocialButton from "../components/SocialButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "react-native-axios";
+
 const { height, width } = Dimensions.get("window");
 
 export default function Profile({ navigation }) {
@@ -34,23 +35,14 @@ export default function Profile({ navigation }) {
   const [userInfo, setUserInfo] = useState();
   const [logIn, setLogIn] = useState(false);
   const [refreshing, setRefreching] = useState(false);
-  const[onOefreshing, setOnRefreshing] = useState();
+  const [onOefreshing, setOnRefreshing] = useState();
 
   const onRefresh = React.useCallback(async () => {
     setRefreshing(true);
-  
   });
 
-
-  useFocusEffect(React.useCallback(() => {}));
-
   useEffect(() => {
-    
-   
     getInformation();
-    setTimeout(() => {
-      getInformation();
-    }, 2000);
   }, []);
   const getInformation = async () => {
     try {
@@ -124,7 +116,8 @@ export default function Profile({ navigation }) {
         style={{ height }}
       >
         <ScrollView
-
+          refreshing={refreshing}
+          onRefresh={onRefresh}
           contentContainerStyle={{
             justifyContent: "center",
             alignItems: "center",
@@ -146,7 +139,6 @@ export default function Profile({ navigation }) {
             <Text>Click</Text>
           </TouchableOpacity>
 
-
           <Text style={{ marginTop: 50, marginBottom: 20, fontSize: 30 }}>
             {" "}
             Welcome Back {firstName}{" "}
@@ -165,15 +157,6 @@ export default function Profile({ navigation }) {
           />
 
           <SocialButton
-            buttonTitle={("your lastName ", lastName)}
-            btnType="user"
-            buttonTitle={numberPhone}
-            btnType="phone"
-            color="#1e272e"
-            backgroundColor="#e6eaf4"
-          />
-
-          <SocialButton
             buttonTitle={email}
             btnType="user"
             color="#1e272e"
@@ -185,7 +168,6 @@ export default function Profile({ navigation }) {
             color="#1e272e"
             backgroundColor="#e6eaf4"
           />
-
 
           <Button
             title="more info"
@@ -220,9 +202,6 @@ const styles = StyleSheet.create({
 //  to add cloudinary
 
 /* 
-
-
-
 import React, { useState, useContext } from 'react';
 import * as ImagePicker from 'expo-image-picker';
 import { StyleSheet, Text, View,Image,Button } from 'react-native';
@@ -230,31 +209,25 @@ import axios from 'react-native-axios'
 export default function Photo(props) {
   const [localUri,setSelectedImage]=useState('')
   const [data,setPhoto]=useState('')
-
   let openImagePickerAsync = async () => {
     // let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
     // if (permissionResult.granted === false) {
     //   alert('Permission to access camera roll is required!');
     //   return;
     // }
-
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
       base64: true
     });
-
     if (pickerResult.cancelled === true) {
       return;
     }
-
     setSelectedImage({ localUri: pickerResult.uri });
-
     let data = {
       "file": pickerResult.uri,
       "upload_preset": "kgiezron",
     }
-
     fetch("https://api.cloudinary.com/v1_1/dm1xlu8ce/image/upload", {
       body: JSON.stringify(data),
       headers: {
@@ -263,7 +236,6 @@ export default function Photo(props) {
       method: 'POST',
     }).then(async r => {
       let data = await JSON.parse(r)
-
       setPhoto(data.url);
     }).catch(err => console.log(err))
   };
